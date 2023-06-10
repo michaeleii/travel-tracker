@@ -7,10 +7,12 @@ function PackingList({
   items,
   onRemoveFromPackingList,
   onPackItem,
+  onClearList,
 }: {
   items: IItem[];
   onRemoveFromPackingList: (id: number) => void;
   onPackItem: (id: number) => void;
+  onClearList: () => void;
 }) {
   const [sortBy, setSortBy] = useState("input");
   let sortedItems: IItem[];
@@ -58,7 +60,7 @@ function PackingList({
           <option value="description">Sort by description</option>
           <option value="packed">Sort by packed status</option>
         </select>
-        <button className="btn-primary btn" onClick={() => setSortBy("input")}>
+        <button className="btn-primary btn" onClick={() => onClearList()}>
           Clear List
         </button>
       </div>

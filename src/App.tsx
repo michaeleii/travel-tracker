@@ -27,6 +27,10 @@ function App() {
       )
     );
   }
+  function clearList() {
+    const confimed = window.confirm("Are you sure you want to clear the list?");
+    if (confimed) setItems([]);
+  }
 
   return (
     <div className="grid h-screen grid-rows-[auto_auto_1fr_auto]">
@@ -36,6 +40,7 @@ function App() {
         items={items}
         onRemoveFromPackingList={handleRemoveFromPackingList}
         onPackItem={packItem}
+        onClearList={clearList}
       />
       <Stats items={items} />
     </div>
